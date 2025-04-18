@@ -1,6 +1,6 @@
 apiVersion: v2
 name: delta-task
-description: A Helm chart for Kubernetes
+description: Helm chart for Hello World Go built webserver application
 
 # A chart can be either an 'application' or a 'library' chart.
 #
