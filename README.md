@@ -17,3 +17,22 @@ Exemplar CI/CD task for Delta team interview.
   - [net/http/httptest](https://pkg.go.dev/net/http/httptest)
   - [testing](https://pkg.go.dev/testing)
   - [os](https://pkg.go.dev/os@go1.24.2)
+- [DockerHub](https://hub.docker.com/_/golang/tags?name=alpine)
+- Docker docs:
+  - [Manage secrets](https://docs.docker.com/build/building/secrets/)
+    Annoying. GitHub cannot do Project Deploy token, only ssh key
+
+## Build instructions
+
+1. Setup `ssh-agent` on your system with key to access `Kairixir/delta-task`
+2. Build app
+
+```bash
+docker build -t hello-world-go --ssh=default .
+```
+
+3. Run container
+
+```bash
+docker run -p 8080:8080 hello-world-go
+```
