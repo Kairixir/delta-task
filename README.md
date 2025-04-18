@@ -20,7 +20,14 @@ Exemplar CI/CD task for Delta team interview.
 - [DockerHub](https://hub.docker.com/_/golang/tags?name=alpine)
 - Docker docs:
   - [Manage secrets](https://docs.docker.com/build/building/secrets/)
-    Annoying. GitHub cannot do Project Deploy token, only ssh key
+- [My project for Dockerfile inspiration](https://github.com/Kairixir/PA234/blob/main/hw01/Dockerfile)
+- GitHub docs:
+
+  - [SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys)
+    - Annoying. GitHub cannot do Project Deploy token, only ssh key. GitLab can :/
+
+- Helm docs:
+  - [Cheatsheet](https://helm.sh/docs/intro/cheatsheet/)
 
 ## Build instructions
 
