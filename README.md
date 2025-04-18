@@ -4,6 +4,21 @@
 
 Exemplar CI/CD task for Delta team interview.
 
+## Build instructions
+
+1. Setup `ssh-agent` on your system with key to access `Kairixir/delta-task`
+2. Build app
+
+```bash
+docker build -t hello-world-go --ssh=default .
+```
+
+3. Run container
+
+```bash
+docker run -p 8080:8080 hello-world-go
+```
+
 ## Sources
 
 - Perplexity `delta-task` space
@@ -28,18 +43,3 @@ Exemplar CI/CD task for Delta team interview.
 
 - Helm docs:
   - [Cheatsheet](https://helm.sh/docs/intro/cheatsheet/)
-
-## Build instructions
-
-1. Setup `ssh-agent` on your system with key to access `Kairixir/delta-task`
-2. Build app
-
-```bash
-docker build -t hello-world-go --ssh=default .
-```
-
-3. Run container
-
-```bash
-docker run -p 8080:8080 hello-world-go
-```
