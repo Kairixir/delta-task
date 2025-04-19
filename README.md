@@ -19,6 +19,27 @@ docker build -t hello-world-go --ssh=default .
 docker run -p 8080:8080 hello-world-go
 ```
 
+## Design decision
+
+Should the tests be handled through Dockerfile, or through CI/CD tool?
+
+Dockerfile option will make the testing CI/CD tool agnostic, but it will make
+the Dockerfile much harder to maintain.
+
+Using the CI/CD tool will be easier to maintain over the long term, but it will
+be much harder to migrate to another CI/CD tool, because I will need to rely on
+specific features of the tool—ie. GitHub actions.
+
+Since my goal is to show my skills with CI/CD I will go through the GitHub actions route.
+However, I currently believe there will be a redundant build of the application for unit tests.
+Also, I suspect Go is using advanced strategies to recompile only relevant parts of code.
+Since I will be building the app in virtual env pipeline, the compiler will not be able to use
+these strategies, thus making the compilation slower and more resource intensive.
+
+For my small application this is not a problem, but for a larger or growing application this could
+grow into a huge problem as the application becomes larger. Due to time constraints I deem ignoring this
+the best path forward.
+
 ## Test if pod runs in Minikube
 
 ### For Linux
