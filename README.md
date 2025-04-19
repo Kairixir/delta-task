@@ -77,6 +77,7 @@ The sources document my path through the task:
 - Helm docs:
 
   - [Cheatsheet](https://helm.sh/docs/intro/cheatsheet/)
+  - [Helm test](https://helm.sh/docs/topics/chart_tests/)
 
 - Minikube:
 
