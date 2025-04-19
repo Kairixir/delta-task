@@ -21,6 +21,8 @@ docker run -p 8080:8080 hello-world-go
 
 ## Sources
 
+The sources document my path through the task:
+
 - Perplexity `delta-task` space
 - Go docs:
   - [Getting started](https://go.dev/doc/tutorial/getting-started)
