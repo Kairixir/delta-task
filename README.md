@@ -19,14 +19,14 @@ docker build -t hello-world-go --ssh=default .
 docker run -p 8080:8080 hello-world-go
 ```
 
-## Test if pod runs in minikube
+## Test if pod runs in Minikube
 
 ### For Linux
 
 Either add `minikube ip` output to `/etc/hosts`:
 
 ```bash
-sudo bash -c 'echo "hello-world.delta $(minikube ip)" >> /etc/hosts'
+IP=$(minikube ip) sudo bash -c "echo \"$IP hello-world.delta # delta hw task minikube redirect\" >> /etc/hosts"
 ```
 
 and access in browser, or add custom DNS resolve record to `curl` command:
@@ -37,7 +37,7 @@ curl --resolve "hello-world.delta:80:$( minikube ip )" -i http://hello-world.del
 
 ### For MacOS
 
-The step 4. explains [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/#create-an-ingress) how to run on MacOS.
+The step 4 explains [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/#create-an-ingress) how to run on MacOS.
 
 Instructions, not tested:
 
