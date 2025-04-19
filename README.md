@@ -85,6 +85,11 @@ The sources document my path through the task:
   - [Ingress in minikube](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
 
 - Kubernetes:
+
   - kubectl CLI help
   - [Services](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
   - [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+
+- GitHub actions:
+  - [docs](https://docs.github.com/en/actions)
+  - [Go starter project](https://github.com/actions/starter-workflows/blob/main/ci/go.yml)
