@@ -49,6 +49,8 @@ resources:
   #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+#
+# TODO: Setup better liveness and readiness probes so they don't pollute logs
 livenessProbe:
   httpGet:
     path: /
