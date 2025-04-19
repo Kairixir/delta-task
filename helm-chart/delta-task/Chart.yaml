@@ -1,5 +1,5 @@
 apiVersion: v2
-name: delta-task
+name: hello-world
 description: Helm chart for Hello World Go built webserver application
 
 # A chart can be either an 'application' or a 'library' chart.
