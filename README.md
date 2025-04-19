@@ -19,10 +19,41 @@ docker build -t hello-world-go --ssh=default .
 docker run -p 8080:8080 hello-world-go
 ```
 
+## Test if pod runs in minikube
+
+### For Linux
+
+Either add `minikube ip` output to `/etc/hosts`:
+
+```bash
+sudo bash -c 'echo "hello-world.delta $(minikube ip)" >> /etc/hosts'
+```
+
+and access in browser, or add custom DNS resolve record to `curl` command:
+
+```bash
+curl --resolve "hello-world.delta:80:$( minikube ip )" -i http://hello-world.delta
+```
+
+### For MacOS
+
+The step 4. explains [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/#create-an-ingress) how to run on MacOS.
+
+Instructions, not tested:
+
+```bash
+# In new terminal
+minikube tunnel
+
+# Curl request
+curl --resolve "hello-world.delta:80:127.0.0.1" -i http://hello-world.delta
+```
+
 ## Sources
 
 The sources document my path through the task:
 
+- Kagi as search engine
 - Perplexity `delta-task` space
 - Go docs:
   - [Getting started](https://go.dev/doc/tutorial/getting-started)
@@ -48,4 +79,11 @@ The sources document my path through the task:
   - [Cheatsheet](https://helm.sh/docs/intro/cheatsheet/)
 
 - Minikube:
-  - help
+
+  - CLI help
+  - [Ingress in minikube](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
+
+- Kubernetes:
+  - kubectl CLI help
+  - [Services](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
+  - [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
