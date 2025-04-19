@@ -23,11 +23,12 @@ service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  port: 8080
+  port: 80
   targetPort: 8080
 
 ingress:
-  host: "localhost"
+  host: "hello-world.delta"
+  className: "nginx"
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
