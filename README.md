@@ -44,4 +44,8 @@ The sources document my path through the task:
     - Annoying. GitHub cannot do Project Deploy token, only ssh key. GitLab can :/
 
 - Helm docs:
+
   - [Cheatsheet](https://helm.sh/docs/intro/cheatsheet/)
+
+- Minikube:
+  - help
