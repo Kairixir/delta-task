@@ -40,6 +40,9 @@ For my small application this is not a problem, but for a larger or growing appl
 grow into a huge problem as the application becomes larger. Due to time constraints I deem ignoring this
 the best path forward.
 
+If it were not for the testing of my CI/CD skills I would have gone with the Dockerfile option if
+restricted similarly. Especially since I plan to migrate this project to ArgoCD when I finish it.
+
 ## Test if pod runs in Minikube
 
 ### For Linux
