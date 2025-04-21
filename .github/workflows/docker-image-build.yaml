@@ -21,6 +21,6 @@ jobs:
           DOCKERHUB_TOKEN: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
 
         run: |
-          echo "$DOCKERHUB_TOKEN"
+          echo "DOCKERHUB_TOKEN"
           # docker login -u kairixir -p "$DOCKERHUB_TOKEN" 
           # docker push "kairixir/hello-world-go:${{ github.ref_name }}"
