@@ -5,8 +5,9 @@ on:
     secrets:
       dockerhub_token:
         required: true
-    with:
+    inputs:
       ref_name:
+        type: string
         required: false
         default: ${{ github.ref_name }}
 
