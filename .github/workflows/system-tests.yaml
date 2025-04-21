@@ -11,8 +11,8 @@ jobs:
       - name: "Pull container"
         run: |
           apk add curl
-          docker pull "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
-          docker run -p 8080:8080 "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
+          docker pull "kairixir/hello-world-go:${{ github.ref_name }}"
+          docker run -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
           curl -vL localhost:8080
 
   test-server-returns-expected-string:
@@ -22,6 +22,6 @@ jobs:
       - name: "Pull container"
         run: |
           apk add curl grep
-          docker pull "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
-          docker run -p 8080:8080 "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
+          docker pull "kairixir/hello-world-go:${{ github.ref_name }}"
+          docker run -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
           curl -sL localhost:8080 && grep 'Hello world!'
