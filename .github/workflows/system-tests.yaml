@@ -12,7 +12,10 @@ jobs:
         run: |
           apk add curl
           docker pull "kairixir/hello-world-go:${{ github.ref_name }}"
+      - name: "Run test"
+        run: |
           docker run -d -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
+          sleep 10
           curl -vL localhost:8080
 
   test-server-returns-expected-string:
@@ -23,5 +26,8 @@ jobs:
         run: |
           apk add curl grep
           docker pull "kairixir/hello-world-go:${{ github.ref_name }}"
+      - name: "Run test"
+        run: |
           docker run -d -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
+          sleep 10
           curl -sL localhost:8080 && grep 'Hello world!'
