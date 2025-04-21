@@ -6,30 +6,22 @@ on:
 jobs:
   test-server-alive:
     runs-on: ubuntu-latest
-    container: docker:28.1.1-dind-alpine3.21
     steps:
       - name: "Pull container"
         run: |
-          apk add curl
           docker pull "kairixir/hello-world-go:${{ github.ref_name }}"
       - name: "Run test"
         run: |
           docker run -d -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
-          apk add net-tools
-          netstat -tunlp
-          sleep 10
           curl -vL localhost:8080
 
   test-server-returns-expected-string:
     runs-on: ubuntu-latest
-    container: docker:28.1.1-dind-alpine3.21
     steps:
       - name: "Pull container"
         run: |
-          apk add curl grep
           docker pull "kairixir/hello-world-go:${{ github.ref_name }}"
       - name: "Run test"
         run: |
           docker run -d -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
-          sleep 10
           curl -sL localhost:8080 && grep 'Hello world!'
