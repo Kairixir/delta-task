@@ -24,4 +24,4 @@ jobs:
       - name: "Run test"
         run: |
           docker run -d -p 8080:8080 "kairixir/hello-world-go:${{ github.ref_name }}"
-          curl -sL localhost:8080 && grep 'Hello world!'
+          curl -sL localhost:8080 && grep 'Hello World!'
