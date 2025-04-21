@@ -72,6 +72,13 @@ minikube tunnel
 curl --resolve "hello-world.delta:80:127.0.0.1" -i http://hello-world.delta
 ```
 
+## I am pushing straight to master and using a lot of comments
+
+I see this as a mistake, but it is time efficient. I prefer to use branches and
+PRs for code changes and then squash all the commits into one with sensible
+message to not pollute the main's commit history. I would never do this on
+established codebase or on a project I plan to scale.
+
 ## Sources
 
 The sources document my path through the task:
