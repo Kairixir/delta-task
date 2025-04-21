@@ -1,0 +1,27 @@
+name: System tests
+
+on:
+  workflow_call:
+
+jobs:
+  test-server-alive:
+    runs-on: ubuntu-latest
+    container: 28.1.1-dind-alpine3.21
+    steps:
+      - name: "Pull container"
+        run: |
+          apk add curl
+          docker pull "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
+          docker run -p 8080:8080 "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
+          curl -vL localhost:8080
+
+  test-server-returns-expected-string:
+    runs-on: ubuntu-latest
+    container: 28.1.1-dind-alpine3.21
+    steps:
+      - name: "Pull container"
+        run: |
+          apk add curl grep
+          docker pull "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
+          docker run -p 8080:8080 "kairixir/hello-world-go:kairixir/hello-world-go:${{ github.ref_name }}"
+          curl -sL localhost:8080 && grep 'Hello world!'

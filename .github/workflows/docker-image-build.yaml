@@ -5,6 +5,10 @@ on:
     secrets:
       dockerhub_token:
         required: true
+    with:
+      ref_name:
+        required: false
+        default: ${{ github.ref_name }}
 
 jobs:
   build-image-and-push:
@@ -16,7 +20,7 @@ jobs:
         #TODO: make sure it does not break on PRs
         # Search github.ref_name
         # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context
-        run: docker build . --file Dockerfile --tag "kairixir/hello-world-go:${{ github.ref_name }}"
+        run: docker build . --file Dockerfile --tag "kairixir/hello-world-go:${{ inputs.ref_name }}"
 
       - name: Push Docker image to DokcerHub
         env:
@@ -24,4 +28,4 @@ jobs:
 
         run: |
           docker login -u kairixir -p "$DOCKERHUB_TOKEN" 
-          docker push "kairixir/hello-world-go:${{ github.ref_name }}"
+          docker push "kairixir/hello-world-go:${{ inputs.ref_name }}"

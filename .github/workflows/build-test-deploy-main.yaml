@@ -7,6 +7,9 @@ on:
     branches: ["main", "testing-ci"]
 
 jobs:
+  #TODO: Static code analysis
+
+  #TODO Build once and run unit-tests upon the container (viz README)
   unit-tests:
     uses: ./.github/workflows/unit-tests.yaml
 
@@ -15,3 +18,15 @@ jobs:
     uses: ./.github/workflows/docker-image-build.yaml
     secrets:
       dockerhub_token: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
+
+  system-tests:
+    needs: build-image
+    uses: ./.github/workflows/system-tests.yaml
+
+  push-as-latest:
+    needs: system-tests
+    uses: ./.github/workflows/docker-image-build.yaml
+    secrets:
+      dockerhub_token: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
+    with:
+      ref_name: "latest"
