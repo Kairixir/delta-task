@@ -13,12 +13,13 @@ jobs:
         #TODO: make sure it does not break on PRs
         # Search github.ref_name
         # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#github-context
-        run: docker build . --file Dockerfile --tag "kairixir/hello-world-go:${{ github.ref_name }}"
+        # run: docker build . --file Dockerfile --tag "kairixir/hello-world-go:${{ github.ref_name }}"
 
       - name: Push Docker image to DokcerHub
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
 
         run: |
-          docker login -u kairixir -p "$DOCKERHUB_TOKEN" 
-          docker push "kairixir/hello-world-go:${{ github.ref_name }}"
+          echo "DOCKERHUB_TOKEN"
+          # docker login -u kairixir -p "$DOCKERHUB_TOKEN" 
+          # docker push "kairixir/hello-world-go:${{ github.ref_name }}"
