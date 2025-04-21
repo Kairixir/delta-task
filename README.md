@@ -121,3 +121,4 @@ The sources document my path through the task:
   - Github docs for [Docker container action](https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-docker-container-action) and [Dockerfile support](https://docs.github.com/en/actions/sharing-automations/creating-actions/dockerfile-support-for-github-actions)
   - [Docker build image starter action](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml)
   - [Docker publish starter action](https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml)
+  - [Setup Go action](https://github.com/actions/setup-go/tree/main)
