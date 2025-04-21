@@ -6,7 +6,7 @@ on:
 jobs:
   test-server-alive:
     runs-on: ubuntu-latest
-    container: 28.1.1-dind-alpine3.21
+    container: docker:28.1.1-dind-alpine3.21
     steps:
       - name: "Pull container"
         run: |
@@ -17,7 +17,7 @@ jobs:
 
   test-server-returns-expected-string:
     runs-on: ubuntu-latest
-    container: 28.1.1-dind-alpine3.21
+    container: docker:28.1.1-dind-alpine3.21
     steps:
       - name: "Pull container"
         run: |
