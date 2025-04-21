@@ -16,7 +16,7 @@ jobs:
         run: docker build . --file Dockerfile --tag "kairixir/hello-world-go:${{ github.ref_name }}"
 
       - name: Push Docker image to DokcerHub
-        with:
+        env:
           DOCKERHUB_TOKEN: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
 
         run: |
