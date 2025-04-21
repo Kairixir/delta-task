@@ -11,5 +11,7 @@ jobs:
   #   uses: ./.github/workflows/unit-tests.yaml
 
   build-image:
-    #  needs: unit-tests
+    # needs: unit-tests
     uses: ./.github/workflows/docker-image-build.yaml
+    secrets:
+      dockerhub_token: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}

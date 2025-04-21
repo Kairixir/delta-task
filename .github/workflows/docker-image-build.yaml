@@ -2,6 +2,9 @@ name: Docker Image CI
 
 on:
   workflow_call:
+    secrets:
+      dockerhub_token:
+        required: true
 
 jobs:
   build-image-and-push:
@@ -18,7 +21,7 @@ jobs:
 
       - name: Push Docker image to DokcerHub
         env:
-          DOCKERHUB_TOKEN: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
+          DOCKERHUB_TOKEN: ${{ secrets.dockerhub_token }}
 
         run: |
           echo "$DOCKERHUB_TOKEN"
