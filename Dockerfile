@@ -3,7 +3,8 @@
 #################
 FROM golang:1.24.2-alpine3.21 AS builder
 
-ADD git@github.com:Kairixir/delta-task.git /app/
+# ADD git@github.com:Kairixir/delta-task.git /app/
+COPY . /app
 
 WORKDIR /app
 
