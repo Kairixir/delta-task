@@ -72,12 +72,23 @@ minikube tunnel
 curl --resolve "hello-world.delta:80:127.0.0.1" -i http://hello-world.delta
 ```
 
-## I am pushing straight to master and using a lot of comments
+## Comments
+
+### I am pushing straight to master and using a lot of comments
 
 I see this as a mistake, but it is time efficient. I prefer to use branches and
 PRs for code changes and then squash all the commits into one with sensible
 message to not pollute the main's commit history. I would never do this on
 established codebase or on a project I plan to scale.
+
+### Caching
+
+The caching of the build process is terribly optimized. For production pipeline
+I would focus much more time on this. For example container rebuilding, common
+cache for Docker layers, rebuilding Go code efficiently with respect to what
+Go compiler allows, etc.
+
+I intentionally skip it due to time requirements for efficient solution.
 
 ## Sources
 
