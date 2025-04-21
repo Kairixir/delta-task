@@ -13,3 +13,5 @@ jobs:
   build-image:
     needs: unit-tests
     uses: ./.github/workflows/docker-image-build.yaml
+    secrets:
+      dockerhub_token: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
