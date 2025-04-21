@@ -86,9 +86,7 @@ established codebase or on a project I plan to scale.
 The caching of the build process is terribly optimized. For production pipeline
 I would focus much more time on this. For example container rebuilding, common
 cache for Docker layers, rebuilding Go code efficiently with respect to what
-Go compiler allows, etc.
-
-I intentionally skip it due to time requirements for efficient solution.
+Go compiler allows,
 
 ## Sources
 
