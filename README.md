@@ -122,6 +122,8 @@ The sources document my path through the task:
 
   - CLI help
   - [Ingress in minikube](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
+  - [Ingress DNS](https://minikube.sigs.k8s.io/docs/handbook/addons/ingress-dns/#Linux)
+    - Add minikube as DNS server for domain names to work correctly without tunnel
 
 - Kubernetes:
 
