@@ -130,6 +130,7 @@ The sources document my path through the task:
   - [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
 - GitHub actions:
+
   - [docs](https://docs.github.com/en/actions)
   - [Go starter project](https://github.com/actions/starter-workflows/blob/main/ci/go.yml)
   - [Build & Test Go docs](https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-go)
@@ -137,3 +138,7 @@ The sources document my path through the task:
   - [Docker build image starter action](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml)
   - [Docker publish starter action](https://github.com/actions/starter-workflows/blob/main/ci/docker-publish.yml)
   - [Setup Go action](https://github.com/actions/setup-go/tree/main)
+
+- ArgoCD
+  - [Official docs](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+  - [ArgoCD Helm](https://argo-cd.readthedocs.io/en/stable/user-guide/helm/)
