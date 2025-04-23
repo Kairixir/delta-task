@@ -26,4 +26,4 @@ jobs:
         run: |
           git checkout main
           git merge origin deploy
-          git push
+          git push origin main
