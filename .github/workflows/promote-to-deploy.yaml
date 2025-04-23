@@ -1,0 +1,23 @@
+name: Promote main to deploy branch
+
+on:
+  workflow_call:
+
+jobs:
+  promote-to-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: deploy
+      - name: Merge tested changes to deploy
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.name "actions@github.com"
+          git fetch origin main:main
+          git merge main --no-ff -m "Merge tested commit $(git rev-parse --short $HEAD)"
+          git push origin deploy

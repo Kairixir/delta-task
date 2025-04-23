@@ -30,3 +30,9 @@ jobs:
       dockerhub_token: ${{ secrets.DELTA_TASK_DOCKERHUB_PUSH_TOKEN }}
     with:
       ref_name: "latest"
+
+  promote-to-deploy:
+    needs: push-as-latest
+    uses: ./.github/workflows/promote-to-deploy.yaml
+    permissions:
+      contents: write
