@@ -22,8 +22,8 @@ jobs:
           git merge main --no-ff -m "Merge tested commit $(git rev-parse --short main)"
           git push origin deploy
 
-#      - name: Merge deploy to main
-#        run: |
-#          git checkout main
-#          git merge origin deploy
-#          git push
+      - name: Merge deploy to main
+        run: |
+          git checkout main
+          git merge origin deploy
+          git push
