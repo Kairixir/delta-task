@@ -34,3 +34,5 @@ jobs:
   promote-to-deploy:
     needs: push-as-latest
     uses: ./.github/workflows/promote-to-deploy.yaml
+    permissions:
+      contents: write
