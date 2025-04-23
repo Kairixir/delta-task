@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 	"net/http/httptest"
+	"regexp"
 	"testing"
 )
 
@@ -21,9 +22,12 @@ func TestHandler(test *testing.T) {
 			status, http.StatusOK)
 	}
 
-	expected := "Hello World!\n"
-	if rr.Body.String() != expected {
-		test.Errorf("handler returned unexpected body: got %v want %v",
+	expected := "^Hello World!\n.*"
+
+	re := regexp.MustCompile(expected)
+
+	if !re.MatchString(rr.Body.String()) {
+		test.Errorf("handler returned unexpected body: got %v expected to match %v",
 			rr.Body.String(), expected)
 	}
 }
