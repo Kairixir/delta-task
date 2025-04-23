@@ -9,7 +9,7 @@ import (
 
 func handler(writer http.ResponseWriter, req *http.Request) {
 	log.Print("hello-world: received a request")
-	fmt.Fprintf(writer, "Hello World!\nI have changed!")
+	fmt.Fprintf(writer, "Hello World!\nI have changed!\nAgain!")
 }
 
 func main() {
