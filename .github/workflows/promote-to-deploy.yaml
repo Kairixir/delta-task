@@ -19,5 +19,11 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.name "actions@github.com"
           git fetch origin main:main
-          git merge main --no-ff -m "Merge tested commit $(git rev-parse --short $HEAD)"
+          git merge main --no-ff -m "Merge tested commit $(git rev-parse --short main)"
           git push origin deploy
+
+#      - name: Merge deploy to main
+#        run: |
+#          git checkout main
+#          git merge origin deploy
+#          git push

@@ -124,6 +124,9 @@ The sources document my path through the task:
   - [Ingress in minikube](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
   - [Ingress DNS](https://minikube.sigs.k8s.io/docs/handbook/addons/ingress-dns/#Linux)
     - Add minikube as DNS server for domain names to work correctly without tunnel
+  - Minikube has issues with DNS:
+    - [Guide to migrate to CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)
+    - [CoreDNS installation](https://coredns.io/manual/installation/)
 
 - Kubernetes:
 
