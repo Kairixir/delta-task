@@ -127,6 +127,19 @@ or try to build on Solution 1 and try to use templating to implement solution 3.
 Now the readiness and liveness probes pollute log. I would definitely change and improve
 them so the project has better monitoring and observability.
 
+### Deploy branch
+
+I don't like the way merge to deploy adds new commits. At first I thought it
+was a good idea to track when changes are merged to the deploy branch and keep
+main branch updated with deploy. However, this causes the remote update on main
+branch. This breaks my local git repo.
+
+I cannot make changes in the main branch, since the CI pipeline adds new
+commit, and when I try to reconcile the changes during git pull, git refuses to
+connect to any remote source for a few minutes.
+
+Would try a `rebase` strategy instead of merge and see the results.
+
 ### HTTPS
 
 The app is missing https.
