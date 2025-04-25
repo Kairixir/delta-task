@@ -89,18 +89,20 @@ Using the CI/CD tool will be easier to maintain over the long term, but it will
 be much harder to migrate to another CI/CD tool, because I will need to rely on
 specific features of the tool—ie. GitHub actions.
 
-Since my goal is to show my skills with CI/CD I will go through the GitHub actions route.
-However, I currently believe there will be a redundant build of the application for unit tests.
-Also, I suspect Go is using advanced strategies to recompile only relevant parts of code.
-Since I will be building the app in virtual env pipeline, the compiler will not be able to use
-these strategies, thus making the compilation slower and more resource intensive.
+Since my goal is to show my skills with CI/CD I will go through the GitHub
+actions route. However, I currently believe there will be a redundant build of
+the application for unit tests. Also, I suspect Go is using advanced strategies
+to recompile only relevant parts of code. Since I will be building the app in
+virtual env pipeline, the compiler will not be able to use these strategies,
+thus making the compilation slower and more resource intensive.
 
-For my small application this is not a problem, but for a larger or growing application this could
-grow into a huge problem as the application becomes larger. Due to time constraints I deem ignoring this
-the best path forward.
+For my small application this is not a problem, but for a larger or growing
+application this could grow into a huge problem as the application becomes
+larger. Due to time constraints I deem ignoring this the best path forward.
 
-If it were not for the testing of my CI/CD skills I would have gone with the Dockerfile option if
-restricted similarly. Especially since I plan to migrate this project to ArgoCD when I finish it.
+If it were not for the testing of my CI/CD skills I would have gone with the
+Dockerfile option if restricted similarly. Especially since I plan to migrate
+this project to ArgoCD when I finish it.
 
 ## Comments
 
@@ -136,26 +138,28 @@ After looking into the issue I found two possible solutions:
 3. Update Helm chart image tags and use semantic versioning when deploying containers
    (ie. no latest)
 
-I am inclined to do solution 2. It seems like the best option because it preserves GitOps (ie.
-git is the single source of truth) and would require minimal changes during deploy.
-The con is I am not certain changing the version in Chart.yaml would trigger redeployment
-as I expect it.
+I am inclined to do solution 2. It seems like the best option because it
+preserves GitOps (ie. git is the single source of truth) and would require
+minimal changes during deploy. The con is I am not certain changing the version
+in Chart.yaml would trigger redeployment as I expect it.
 
-Solution 1 seems like an interesting solution due to the tools' documentation; however,
-it breaks the principle of single source of truth in git. It depends on Container registry,
-not git. At the same time the authors of the tool do not recommend using it in production
-environments and
+Solution 1 seems like an interesting solution due to the tools' documentation;
+however, it breaks the principle of single source of truth in git. It depends
+on Container registry, not git. At the same time the authors of the tool do not
+recommend using it in production environments and
 
-Solution 3 seems like it should always work, but it seems hardest to maintain and implement.
+Solution 3 seems like it should always work, but it seems hardest to maintain
+and implement.
 
-Probably would test the solution 2 in local env, and if it would not work, I would look more
-into the Image Updater documentation. With more information I would then either use the tool
-or try to build on Solution 1 and try to use templating to implement solution 3.
+Probably would test the solution 2 in local env, and if it would not work, I
+would look more into the Image Updater documentation. With more information I
+would then either use the tool or try to build on Solution 1 and try to use
+templating to implement solution 3.
 
 ### Readiness and liveness probes
 
-Now the readiness and liveness probes pollute log. I would definitely change and improve
-them so the project has better monitoring and observability.
+Now the readiness and liveness probes pollute log. I would definitely change
+and improve them so the project has better monitoring and observability.
 
 ### Deploy branch
 
@@ -176,9 +180,9 @@ The app is missing https.
 
 ### GitHub Actions
 
-Even though I have used GitHub actions for the CI/CD pipeline, I would try to avoid them
-in production. I would prefer to keep my pipelines tool-agnostic to enable easy migration
-in case of dissatisfaction with the tool.
+Even though I have used GitHub actions for the CI/CD pipeline, I would try to
+avoid them in production. I would prefer to keep my pipelines tool-agnostic to
+enable easy migration in case of dissatisfaction with the tool.
 
 ## Sources
 
