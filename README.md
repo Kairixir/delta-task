@@ -4,7 +4,13 @@
 
 Exemplar CI/CD task for Delta team interview.
 
-## Build instructions
+## Requirements
+
+- k8s cluster with CoreDNS able to access the internet
+- argoCD CLI
+- docker
+
+## Docker build instructions
 
 1. Build app
 
@@ -16,6 +22,60 @@ docker build -t hello-world-go .
 
 ```bash
 docker run -p 8080:8080 hello-world-go
+```
+
+## Setup Minikube
+
+### Setup coreDNS
+
+To resolve correctly in minikube you need to setup external DNS resolver for coreDNS.
+
+Open coreDNS'es configmap:
+
+```bash
+kubectl edit configmap/coredns -n kube-system
+```
+
+and add Google's DNS server (or any you prefer) to the `forward` section
+instead of the present `resolv.conf`:
+
+```yaml
+forward . 8.8.8.8 8.8.4.4 1.1.1.1 {
+max_concurrent 1000
+}
+# forward . /etc/resolv.conf {
+#    max_concurrent 1000
+# }
+```
+
+### Test deployed cluster
+
+#### For Linux
+
+Either add `minikube ip` output to `/etc/hosts`:
+
+```bash
+IP=$(minikube ip) sudo bash -c "echo \"$IP hello-world.delta # delta hw task minikube redirect\" >> /etc/hosts"
+```
+
+and access in browser, or add custom DNS resolve record to `curl` command:
+
+```bash
+curl --resolve "hello-world.delta:80:$( minikube ip )" -i http://hello-world.delta
+```
+
+#### For MacOS
+
+The step 4 explains [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/#create-an-ingress) how to run on MacOS.
+
+Instructions, not tested:
+
+```bash
+# In new terminal
+minikube tunnel
+
+# Curl request
+curl --resolve "hello-world.delta:80:127.0.0.1" -i http://hello-world.delta
 ```
 
 ## Design decision
@@ -41,36 +101,6 @@ the best path forward.
 
 If it were not for the testing of my CI/CD skills I would have gone with the Dockerfile option if
 restricted similarly. Especially since I plan to migrate this project to ArgoCD when I finish it.
-
-## Test if pod runs in Minikube
-
-### For Linux
-
-Either add `minikube ip` output to `/etc/hosts`:
-
-```bash
-IP=$(minikube ip) sudo bash -c "echo \"$IP hello-world.delta # delta hw task minikube redirect\" >> /etc/hosts"
-```
-
-and access in browser, or add custom DNS resolve record to `curl` command:
-
-```bash
-curl --resolve "hello-world.delta:80:$( minikube ip )" -i http://hello-world.delta
-```
-
-### For MacOS
-
-The step 4 explains [here](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/#create-an-ingress) how to run on MacOS.
-
-Instructions, not tested:
-
-```bash
-# In new terminal
-minikube tunnel
-
-# Curl request
-curl --resolve "hello-world.delta:80:127.0.0.1" -i http://hello-world.delta
-```
 
 ## Comments
 
