@@ -7,8 +7,11 @@ Exemplar CI/CD task for Delta team interview.
 ## Requirements
 
 - k8s cluster with CoreDNS able to access the internet
-- argoCD CLI
-- docker
+  - Tested on minikube, should be able to run elsewhere
+- [installed Argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/) in your k8s cluster
+- `argocd` CLI tool
+- `docker`
+- `kubectl`
 
 ## Docker build instructions
 
@@ -47,6 +50,13 @@ max_concurrent 1000
 #    max_concurrent 1000
 # }
 ```
+
+### Deploy cluster
+
+1. Clone `[Kairixir/delta-task-argocd](https://github.com/Kairixir/delta-task-argocd)` repo
+2. [Generate Personal Access Token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) for GitHub repo `Kairixir/delta-task` and save it to `secrets/token`
+3. Add the token to ArgoCD: `argocd repocreds add https://github.com/Kairixir/delta-task.git --username x-access-token --password $(cat secrets/token)`
+4. Apply ArgoCD config to your cluster `kubectl apply -f delta-task-argocd/clusters/minikube/hello-world-go.yaml -n argocd`
 
 ### Test deployed cluster
 
