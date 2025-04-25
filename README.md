@@ -122,6 +122,21 @@ Probably would test the solution 2 in local env, and if it would not work, I wou
 into the Image Updater documentation. With more information I would then either use the tool
 or try to build on Solution 1 and try to use templating to implement solution 3.
 
+### Readiness and liveness probes
+
+Now the readiness and liveness probes pollute log. I would definitely change and improve
+them so the project has better monitoring and observability.
+
+### HTTPS
+
+The app is missing https.
+
+### GitHub Actions
+
+Even though I have used GitHub actions for the CI/CD pipeline, I would try to avoid them
+in production. I would prefer to keep my pipelines tool-agnostic to enable easy migration
+in case of dissatisfaction with the tool.
+
 ## Sources
 
 The sources document my path through the task:
