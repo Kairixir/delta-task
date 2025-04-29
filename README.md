@@ -53,7 +53,7 @@ max_concurrent 1000
 
 ### Deploy cluster
 
-1. Clone `[Kairixir/delta-task-argocd](https://github.com/Kairixir/delta-task-argocd)` repo
+1. Clone [`Kairixir/delta-task-argocd`](https://github.com/Kairixir/delta-task-argocd) repo
 2. [Generate Personal Access Token (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) for GitHub repo `Kairixir/delta-task` and save it to `secrets/token`
 3. Add the token to ArgoCD: `argocd repocreds add https://github.com/Kairixir/delta-task.git --username x-access-token --password $(cat secrets/token)`
 4. Apply ArgoCD config to your cluster `kubectl apply -f delta-task-argocd/clusters/minikube/hello-world-go.yaml -n argocd`
@@ -199,7 +199,7 @@ enable easy migration in case of dissatisfaction with the tool.
 The sources document my path through the task:
 
 - Kagi as search engine
-- Perplexity `delta-task` space
+- Perplexity [`delta-task` space](https://www.perplexity.ai/collections/delta-task-hNvUvpBESc.IsgnZxcnlFw)
 - Go docs:
   - [Getting started](https://go.dev/doc/tutorial/getting-started)
   - [Create module](https://go.dev/doc/tutorial/create-module)
